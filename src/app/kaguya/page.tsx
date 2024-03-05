@@ -17,8 +17,9 @@ export default function Kaguya() {
           <Image
             src="/kaguyaSlides/simple_brush.jpg"
             alt="KAGUYA"
-            width={600}
-            height={800}
+            width={300}
+            height={400}
+            className="w-2/3"
           />
         </div>
         <div className="flex flex-col items-center justify-center w-full my-2">
@@ -47,8 +48,9 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/onPowder.jpg"
             alt="KAGUYA"
-            width={600}
-            height={400}
+            width={300}
+            height={200}
+            className="w-2/3"
           />
         </div>
       </div>
@@ -58,8 +60,9 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/LyingOnTowel.jpg"
             alt="KAGUYA"
-            width={600}
+            width={300}
             height={400}
+            className="w-2/3"
           />
         </div>
         <div className="flex flex-col items-center justify-center w-full my-2">
@@ -85,8 +88,9 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/Cycle-image.png"
             alt="KAGUYA"
-            width={600}
+            width={300}
             height={400}
+            className="w-2/3"
           />
         </div>
       </div>
@@ -97,7 +101,8 @@ export default function Kaguya() {
             src="/kaguyaImages/amenity.jpg"
             alt="KAGUYA"
             width={600}
-            height={400}
+            height={800}
+            className="w-2/3"
           />
         </div>
         <div className="flex flex-col items-center justify-center w-full my-2">

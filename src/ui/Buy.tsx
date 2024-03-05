@@ -7,12 +7,13 @@ export const Buy = ({ brushPrice }: { brushPrice: number }) => {
         ご購入はこちら
       </h2>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-4 justify-center items-start">
-        <div className="mx-auto max-w-xl">
+        <div className="max-w-xl">
           <Image
             src="/kaguyaImages/onPowder.jpg"
             alt="KAGUYA"
-            width={600}
-            height={400}
+            width={500}
+            height={300}
+            className="w-full"
           />
           <h3 className="text-3xl my-2">竹歯ブラシ-KAGUYA-</h3>
           <p className="text-end text-xl">¥{brushPrice}/本</p>
@@ -28,8 +29,14 @@ export const Buy = ({ brushPrice }: { brushPrice: number }) => {
             </button>
           </div>
         </div>
-        <div className="mx-auto max-w-xl">
-          <Image src="/jute/items.jpg" alt="KAGUYA" width={600} height={400} />
+        <div className="max-w-xl">
+          <Image
+            src="/jute/items.jpg"
+            alt="KAGUYA"
+            width={500}
+            height={300}
+            className="w-full"
+          />
           <h3 className="text-3xl my-2">ジュートアップサイクル</h3>
           <p className="text-end text-xl">価格未定</p>
           <p className="text-base text-gray-500 whitespace-pre-wrap">
