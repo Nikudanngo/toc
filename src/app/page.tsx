@@ -6,7 +6,7 @@ export default function Home() {
     <div className="max-w-7xl mx-auto">
       <Slide />
       <div className="flex flex-col md:flex-row mt-6">
-        <div className="flex flex-col items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full my-4">
           <h1 className="text-3xl text-center">
             竹歯ブラシブランド <br /> KAGUYA
           </h1>
@@ -17,7 +17,7 @@ export default function Home() {
             BAMBOO TOOTHBRUSH
           </a>
         </div>
-        <div className="w-full">
+        <div className="mx-32">
           <CardSwipe
             texts={[
               "KAGUYA",
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row mt-6">
-        <div className="w-full">
+        <div className="mx-32">
           <CardSwipe
             texts={[
               "帽子",
@@ -56,7 +56,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full">
+        <div className="flex flex-col items-center justify-center w-full my-4">
           <h1 className="text-3xl text-center">
             コーヒージュートで <br /> アップサイクル
           </h1>
