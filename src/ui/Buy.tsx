@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const Buy = ({ brushPrice }: { brushPrice: number }) => {
   return (
-    <div className="my-8">
+    <div className="my-8 mx-4">
       <h2 className="text-3xl font-medium my-4 border-b-2 border-gray-400">
         ご購入はこちら
       </h2>
