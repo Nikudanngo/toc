@@ -40,8 +40,8 @@ export default function Jute() {
           src="/slides/slide4.jpeg"
           className="w-full"
           alt="sea"
-          width={1920 * 0.4}
-          height={1038 * 0.4}
+          width={1920 * 0.2}
+          height={1038 * 0.2}
         />
         <p className="absolute top-2 left-0 text-center text-lg sm:text-2xl md:text-4xl lg:text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
           コーヒーの旅路は終わらない。
