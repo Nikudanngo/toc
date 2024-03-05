@@ -17,7 +17,15 @@ export const metadata: Metadata = {
   description:
     "日本人のために設計された竹歯ブラシ-KAGUYAの公式サイト。竹歯ブラシブランドThought of Oceanから高品質な歯ブラシを全国どこでもお届けします。",
   icons: "/favicon.ico",
-  keywords: ["竹歯ブラシ", "KAGUYA", "Thought of Ocean"],
+  keywords: [
+    "竹歯ブラシ",
+    "KAGUYA",
+    "Thought of Ocean",
+    "歯ブラシ",
+    "竹製品",
+    "海洋環境",
+    "SDGs",
+  ],
 };
 
 export default function RootLayout({

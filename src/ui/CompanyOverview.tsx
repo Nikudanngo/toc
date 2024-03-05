@@ -47,7 +47,7 @@ export const CompanyOverview = () => {
           <td>三菱UFJ銀行 生駒支店</td>
         </tr>
         <tr>
-          <td>売上金額</td>
+          <td className="font-bold">売上金額</td>
           <td>2.2億円(2023年3月末 時点)</td>
         </tr>
       </tbody>
