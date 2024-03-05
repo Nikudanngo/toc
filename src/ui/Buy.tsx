@@ -21,10 +21,10 @@ export const Buy = ({ brushPrice }: { brushPrice: number }) => {
             天然の竹を使用した歯ブラシです。日本人のために設計されたノズルとグリップで、快適な身が着心地を実現しました。
           </p>
           <div className="flex gap-4 my-4">
-            <button className="bg-blue-400 text-white p-2 rounded-md">
+            <button className="bg-blue-600 text-white p-2 rounded-md">
               購入
             </button>
-            <button className="bg-blue-400 text-white p-2 rounded-md">
+            <button className="bg-blue-600 text-white p-2 rounded-md">
               Amazonで購入
             </button>
           </div>

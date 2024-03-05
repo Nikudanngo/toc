@@ -13,52 +13,33 @@ export const Header = () => {
         </h1>
       </a>
       <nav>
-        <ul className="flex flex-col sm:flex-row sm:gap-4 [&_li]:underline [&_li:hover]:text-blue-400 [&_li:hover]:ml-4 [&_li:hover]:mr-0 [&_li:hover]:list-['＞']">
-          <a href="/">
-            <li
-              className={classNames(
-                pathname === "/" ? "ml-4 list-['＞']" : "mr-4"
-              )}
-            >
+        <ul className="flex flex-col sm:flex-row sm:gap-8 [&_li]:underline [&_li:hover]:text-blue-400 [&_li:hover]:list-['＞']">
+          <li className={classNames({ "list-['＞']": pathname === "/" })}>
+            <a href="/" className="">
               ホーム
-            </li>
-          </a>
-          <a href="/about">
-            <li
-              className={classNames(
-                pathname === "/about" ? "ml-4 list-['＞']" : "mr-4"
-              )}
-            >
-              私たちについて
-            </li>
-          </a>
-          <a href="/kaguya">
-            <li
-              className={classNames(
-                pathname === "/kaguya" ? "ml-4 list-['＞']" : "mr-4"
-              )}
-            >
-              竹歯ブラシ
-            </li>
-          </a>
-          <a href="/jute">
-            <li
-              className={classNames(
-                pathname === "/jute" ? "ml-4 list-['＞']" : "mr-4"
-              )}
-            >
-              ジュート
-            </li>
-          </a>
-          <a href="/contact">
-            <li
-              className={classNames(
-                pathname === "/contact" ? "ml-4 list-['＞']" : "mr-4"
-              )}
-            >
-              連絡先
-            </li>
-          </a>
+            </a>
+          </li>
+          <li className={classNames({ "list-['＞']": pathname === "/about" })}>
+            <a href="/about">私たちについて</a>
+          </li>
+          <li
+            className={classNames({
+              "list-['＞']": pathname === "/kaguya",
+            })}
+          >
+            <a href="/kaguya">竹歯ブラシ</a>
+          </li>
+          <li className={classNames({ "list-['＞']": pathname === "/jute" })}>
+            <a href="/jute">ジュート</a>
+          </li>
+          <li
+            className={classNames(
+              { "list-['＞']": pathname === "/contact" },
+              "sm:mr-4"
+            )}
+          >
+            <a href="/contact">連絡先</a>
+          </li>
         </ul>
       </nav>
     </header>

@@ -15,7 +15,7 @@ export default function About() {
           (「
           <span>
             <a
-              className="underline text-blue-500"
+              className="underline text-blue-600"
               href="https://portals.iucn.org/library/node/48957"
             >
               The marine plastic footprint

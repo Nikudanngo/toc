@@ -9,7 +9,7 @@ export const Footer = () => {
         <a
           href="https://www.instagram.com/okinagram/"
           target="_blank"
-          rel="noopener noreferrer"
+          aria-label="Instagram"
         >
           <FontAwesomeIcon icon={faInstagram} className="w-8" />
         </a>
@@ -17,6 +17,7 @@ export const Footer = () => {
           href="https://www.amazon.co.jp/s?me=A3I6MWRX1EEVQE&marketplaceID=A1VC38T7YXB528"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Amazon"
         >
           <FontAwesomeIcon icon={faAmazon} className="w-8" />
         </a>
