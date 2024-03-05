@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={`${ZenMaruGothic.variable} min-h-dvh`}>
+      <body className={`${ZenMaruGothic.variable} min-h-dvh overflow-x-hidden`}>
         <Header />
         <main className="">{children}</main>
         <Footer />
