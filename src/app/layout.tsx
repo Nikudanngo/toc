@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${ZenMaruGothic.variable} min-h-dvh`}>
         <Header />
-        <main className="pt-32 md:pt-16">{children}</main>
+        <main className="">{children}</main>
         <Footer />
       </body>
     </html>
