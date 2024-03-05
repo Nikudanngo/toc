@@ -22,7 +22,7 @@ export const Footer = () => {
         </a>
       </div>
       <p className="flex items-center justify-center text-center">
-        © 2021-2022 allthumbs .Co.,LTD
+        © 2021-2024 オールサム有限会社
       </p>
     </div>
   );
