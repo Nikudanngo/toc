@@ -17,11 +17,11 @@ export default function Home() {
             BAMBOO TOOTHBRUSH
           </a>
         </div>
-        <div className="mx-32">
+        <div className="w-full">
           <CardSwipe
             texts={[
               "KAGUYA",
-              "豊富なカラーバリエーション",
+              "カラーバリエーション",
               "カミソリ",
               "竹櫛",
               "ホテルセット",
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
       </div>
       <div className="flex flex-col-reverse md:flex-row mt-6">
-        <div className="mx-32">
+        <div className="w-full">
           <CardSwipe
             texts={[
               "帽子",

@@ -18,14 +18,16 @@ export const CardSwipe = ({ texts, image }: CardSwipeProps) => {
         effect={"cards"}
         grabCursor={true}
         modules={[EffectCards]}
-        className="w-80 h-96"
+        className="w-44 h-auto sm:w-52 md:w-64"
       >
         {texts.map((text, index) => (
           <SwiperSlide key={index} className="relative text-white font-bold">
-            <p className="absolute bg-black">{text}</p>
+            <p className="absolute bg-black text-xs sm:text-base md:text-base">
+              {text}
+            </p>
             <Image
-              width={300}
-              height={500}
+              width={300 * 0.8}
+              height={500 * 0.8}
               src={image[index]}
               alt={`slide${index + 1}`}
             />

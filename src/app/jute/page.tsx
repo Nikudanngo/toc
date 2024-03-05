@@ -43,10 +43,10 @@ export default function Jute() {
           width={800}
           height={600}
         />
-        <p className="absolute top-2 left-0 text-center text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
+        <p className="absolute top-2 left-0 text-center text-lg sm:text-2xl md:text-4xl lg:text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
           コーヒーの旅路は終わらない。
         </p>
-        <p className="absolute top-20 right-0 text-center text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
+        <p className="absolute top-20 right-0 text-center text-lg sm:text-xl md:text-4xl lg:text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
           麻袋は新たな舞台で、磯焼けの守護者に。
         </p>
       </div>
