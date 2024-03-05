@@ -26,6 +26,7 @@ export const CardSwipe = ({ texts, image }: CardSwipeProps) => {
               {text}
             </p>
             <Image
+              className="w-full"
               width={300 * 0.8}
               height={500 * 0.8}
               src={image[index]}
