@@ -3,6 +3,7 @@ import { Zen_Maru_Gothic } from "next/font/google";
 import { Header } from "@/ui/Header";
 import "./globals.css";
 import { Footer } from "@/ui/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 // https://zenn.dev/hayato94087/articles/f6557abbd6d079
 // を参考にGoogle Fontsを使う
@@ -37,7 +38,10 @@ export default function RootLayout({
     <html lang="ja">
       <body className={`${ZenMaruGothic.variable} min-h-dvh overflow-x-hidden`}>
         <Header />
-        <main className="">{children}</main>
+        <main className="">
+          {children}
+          <Analytics />
+        </main>
         <Footer />
       </body>
     </html>
