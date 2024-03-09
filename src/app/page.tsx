@@ -17,8 +17,11 @@ export default function Home() {
           >
             BAMBOO TOOTHBRUSH
           </a>
+          <button className="p-4 underline text-center">
+            <a href="/kaguya">詳しく見る</a>
+          </button>
         </div>
-        <div className="w-full">
+        <div className="w-full flex flex-col justify-center items-center">
           <CardSwipe
             texts={[
               "KAGUYA",
@@ -67,6 +70,9 @@ export default function Home() {
           >
             COFFEE JUTE UP-CYCLE
           </a>
+          <button className="p-4 underline text-center">
+            <a href="/jute">詳しく見る</a>
+          </button>
         </div>
       </div>
       <Buy product="all" brushPrice={300} jutePrice="準備中" />
