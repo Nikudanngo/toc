@@ -112,7 +112,7 @@ export default function Kaguya() {
           <p className="text-center text-xl text-gray-500 whitespace-pre-wrap m-4">
             弊社ではホテル様向けに多数のアメニティをご用意しています。ご注文は
             <span>
-              <a className=" underline text-blue-400" href="/contact">
+              <a className=" underline text-blue-600" href="/contact">
                 ご連絡
               </a>
             </span>
@@ -121,7 +121,7 @@ export default function Kaguya() {
         </div>
       </div>
 
-      <Buy brushPrice={price} />
+      <Buy brushPrice={price} product="kaguya" />
     </div>
   );
 }

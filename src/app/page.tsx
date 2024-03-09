@@ -1,3 +1,4 @@
+import { Buy } from "@/ui/Buy";
 import { CardSwipe } from "@/ui/CardSwipe";
 import Slide from "@/ui/Slides";
 
@@ -43,7 +44,7 @@ export default function Home() {
               "帽子",
               "コースター",
               "キッチンスポンジ",
-              "麻袋",
+              "コーヒー豆用の麻袋",
               "苗ポット",
             ]}
             image={[
@@ -68,6 +69,7 @@ export default function Home() {
           </a>
         </div>
       </div>
+      <Buy product="all" brushPrice={300} jutePrice="準備中" />
     </div>
   );
 }

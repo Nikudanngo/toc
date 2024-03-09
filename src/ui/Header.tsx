@@ -13,7 +13,7 @@ export const Header = () => {
         </h1>
       </a>
       <nav>
-        <ul className="flex flex-col sm:flex-row sm:gap-8 [&_li]:underline [&_li:hover]:text-blue-400 [&_li:hover]:list-['＞']">
+        <ul className="flex flex-col sm:flex-row sm:gap-8 [&_li]:underline [&_li:hover]:text-blue-600 [&_li:hover]:list-['＞']">
           <li className={classNames({ "list-['＞']": pathname === "/" })}>
             <a href="/" className="">
               ホーム

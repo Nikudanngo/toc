@@ -8,7 +8,7 @@ export const CompanyOverview = () => {
         </tr>
         <tr>
           <td className="font-bold">設立</td>
-          <td>2000年</td>
+          <td>2000年 4月</td>
         </tr>
         <tr>
           <td className="font-bold">資本金</td>
@@ -23,32 +23,32 @@ export const CompanyOverview = () => {
           <td>10名(2023年 3月末時点 パート・アルバイトを含む)</td>
         </tr>
         <tr>
-          <td className="font-bold">所在地</td>
-          <td>奈良県生駒市東菜畑1丁目178-109</td>
+          <td className="font-bold">所在地(本店)</td>
+          <td>奈奈良県生駒市東菜畑1丁目178-109</td>
+        </tr>
+        <tr>
+          <td className="font-bold">所在地(大阪事務所)</td>
+          <td>大阪市中央区農人橋2-1-35 松屋ビル</td>
         </tr>
         <tr>
           <td className="font-bold">事業内容</td>
           <td>
             家庭用雑貨品輸入および国内販売
             <br />
-            クリーンルーム用および電子部品組み立てよう手袋、用品等の輸出入および販売
+            クリーンルーム用および電子部品組み立て手袋、用品等の輸出入および販売
             <br />
             繊維資材の輸出入および販売
             <br />
             ペット用品の輸入および国内販売
             <br />
-            事務用機器用部品の製造販売
+            事務機器用部品の製造販売
             <br />
             竹歯ブラシの製造販売
           </td>
         </tr>
         <tr>
           <td className="font-bold">取引銀行</td>
-          <td>三菱UFJ銀行 生駒支店</td>
-        </tr>
-        <tr>
-          <td className="font-bold">売上金額</td>
-          <td>2.2億円(2023年3月末 時点)</td>
+          <td>三井住友銀行 生駒支店</td>
         </tr>
       </tbody>
     </table>
