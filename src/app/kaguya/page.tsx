@@ -70,7 +70,7 @@ export default function Kaguya() {
             サスティナブル <br /> デザイン
           </h2>
           <p className="text-center text-xl text-gray-500 whitespace-pre-wrap m-4">
-            プラスチックの使用を95%以上削減。これにより、焼却時に発生する有害物質を大幅に削減可能。
+            プラスチックの使用を90%以上削減。これにより、焼却時に発生する有害物質を大幅に削減可能。
           </p>
         </div>
       </div>
