@@ -65,7 +65,7 @@ export default function Contact() {
         </div>
         <div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d410.0970412333015!2d135.71116542559886!3d34.68559416679214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001239c90000001%3A0xc8b69fc668aa840f!2sRecherche!5e0!3m2!1sja!2sjp!4v1629123177581!5m2!1sja!2sjp"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d205.04831050763752!2d135.711367!3d34.685679!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001237607aaeae7%3A0x79ad9bd9d2e7f043!2z44Kq44O844Or44K144Og5pyJ6ZmQ5Lya56S-!5e0!3m2!1sja!2sjp!4v1710514073531!5m2!1sja!2sjp"
             width="100%"
             height="450"
             style={{ border: 0 }}
