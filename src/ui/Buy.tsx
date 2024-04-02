@@ -38,7 +38,8 @@ export const Buy = ({
             </p>
             <div className="flex gap-4 my-4">
               <button className="bg-blue-600 text-white p-2 rounded-md">
-                <a href="https://buy.stripe.com/00gcPd0Eu2FjbiofYY">購入</a>
+                {/* <a href="https://buy.stripe.com/00gcPd0Eu2FjbiofYY">購入</a> */}
+                <a href="payment">購入</a>
               </button>
               <button className="bg-blue-600 text-white p-2 rounded-md">
                 <a href="https://amzn.asia/d/fAz6UDs">Amazonで購入</a>
