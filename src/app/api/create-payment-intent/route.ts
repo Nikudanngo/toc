@@ -10,6 +10,7 @@ interface Item {
 
 interface requestBody {
   items: Item[];
+  email: string;
 }
 
 const calculateTax = async (items: Item[], currency: string) => {
@@ -39,10 +40,10 @@ const buildLineItem = (item: Item) => {
 };
 
 // Securely calculate the order amount, including tax
-const calculateOrderAmount = (items: Item[], taxCalculation: { tax_amount_exclusive: number; }) => {
-  const orderAmount = items.reduce((acc, item) => acc + item.amount, 0) + taxCalculation.tax_amount_exclusive;
-  return orderAmount;
-};
+// const calculateOrderAmount = (items: Item[], taxCalculation: { tax_amount_exclusive: number; }) => {
+//   const orderAmount = items.reduce((acc, item) => acc + item.amount, 0) + taxCalculation.tax_amount_exclusive;
+//   return orderAmount;
+// };
 
 const sumAmount = (items: Item[]) => {
   return items.reduce((acc, item) => acc + item.amount, 0);
@@ -55,7 +56,7 @@ export function GET(request: NextRequest): NextResponse {
 }
 export async function POST(request: Request) {
   console.log(request.body);
-  const { items } = await request.json() as requestBody;
+  const { items, email } = await request.json() as requestBody;
   const taxCalculation = await calculateTax(items, "jpy");
   const amount = sumAmount(items);
 
@@ -63,6 +64,7 @@ export async function POST(request: Request) {
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
     currency: "jpy",
+    receipt_email: email,
     // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
     automatic_payment_methods: {
       enabled: true,
@@ -77,11 +79,11 @@ export async function POST(request: Request) {
   });
 
   // Invoke this method in your webhook handler when `payment_intent.succeeded` webhook is received
-  const handlePaymentIntentSucceeded = async (paymentIntent: { metadata: { [x: string]: any; }; }) => {
-    // Create a Tax Transaction for the successful payment
-    stripe.tax.transactions.createFromCalculation({
-      calculation: paymentIntent.metadata['tax_calculation'],
-      reference: 'myOrder_123', // Replace with a unique reference from your checkout/order system
-    });
-  };
+  // const handlePaymentIntentSucceeded = async (paymentIntent: { metadata: { [x: string]: any; }; }) => {
+  //   // Create a Tax Transaction for the successful payment
+  //   stripe.tax.transactions.createFromCalculation({
+  //     calculation: paymentIntent.metadata['tax_calculation'],
+  //     reference: 'myOrder_123', // Replace with a unique reference from your checkout/order system
+  //   });
+  // };
 };

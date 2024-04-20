@@ -42,11 +42,11 @@ export const Buy = ({
                 <a href="payment">購入</a>
               </button>
               <button className="bg-blue-600 text-white p-2 rounded-md">
-                <a href="https://amzn.asia/d/fAz6UDs">Amazonで購入</a>
+                <a href="https://amzn.asia/d/fAz6UDs">Amazon</a>
               </button>
               <button className="bg-blue-600 text-white p-2 rounded-md">
                 <a href="https://goooods.com/brands/4307535b-8d7a-46f6-a96b-b1a74dbadd97">
-                  goooodsで購入
+                  goooods
                 </a>
               </button>
             </div>

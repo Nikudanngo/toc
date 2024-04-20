@@ -6,7 +6,7 @@ import {
   StripeElementsOptions,
   loadStripe,
 } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import { Elements, LinkAuthenticationElement } from "@stripe/react-stripe-js";
 
 import CheckoutForm from "@/ui/CheckoutForm";
 import AddressForm from "@/ui/AddressForm";
@@ -16,7 +16,6 @@ import AddressForm from "@/ui/AddressForm";
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string
 );
-
 export default function App() {
   const [clientSecret, setClientSecret] = useState<string>();
 
@@ -48,7 +47,7 @@ export default function App() {
   };
 
   return (
-    <div className="m-4">
+    <div className="max-w-7xl mx-auto p-4">
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
           <AddressForm />

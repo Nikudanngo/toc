@@ -5,8 +5,11 @@ import {
   PaymentElement,
   useStripe,
   useElements,
+  ExpressCheckoutElement,
+  LinkAuthenticationElement,
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
+import clsx from "clsx";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -14,6 +17,7 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = React.useState<string | null>();
   const [isLoading, setIsLoading] = React.useState(false);
+  const [email, setEmail] = React.useState("");
 
   React.useEffect(() => {
     if (!stripe) {
@@ -64,6 +68,7 @@ export default function CheckoutForm() {
       confirmParams: {
         // Make sure to change this to your payment completion page
         return_url: "http://localhost:3000",
+        receipt_email: email,
       },
     });
 
@@ -82,19 +87,48 @@ export default function CheckoutForm() {
   };
 
   const paymentElementOptions: StripePaymentElementOptions = {
-    layout: "tabs",
+    layout: "accordion",
   };
-
+  const disabled = isLoading || !stripe || !elements;
+  const handleConfirmExpressCheckout = (event: any) => {
+    event.confirm();
+  };
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
+      <LinkAuthenticationElement
+        onChange={(e) => {
+          setEmail(e.value.email);
+        }}
+      />
+      <ExpressCheckoutElement onConfirm={handleConfirmExpressCheckout} />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
-      <button disabled={isLoading || !stripe || !elements} id="submit">
-        <span id="button-text">
-          {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
-        </span>
-      </button>
-      {/* Show any error or success messages */}
-      {message && <div id="payment-message">{message}</div>}
+      <div className="flex my-4 justify-center items-center gap-4">
+        <a href="/order">
+          <button
+            type="button"
+            className="border p-2 rounded-md w-28"
+            onClick={() => {}}
+          >
+            戻る
+          </button>
+        </a>
+        <button
+          type="submit"
+          className={clsx("bg-gray-400 w-28 text-white p-2 rounded-md", {
+            "!bg-blue-600": !disabled,
+          })}
+          disabled={disabled}
+          id="submit"
+        >
+          <span id="button-text">
+            {isLoading ? (
+              <div className="spinner" id="spinner"></div>
+            ) : (
+              "購入する"
+            )}
+          </span>
+        </button>
+      </div>
     </form>
   );
 }
