@@ -1,53 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-
 const Stripe = require('stripe');
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
-interface Item {
-  amount: number;
-  id: string;
-}
-
+type Item = FormData;
 interface requestBody {
   items: Item[];
-  email: string;
+  amount: number;
+  description: string;
 }
-
-const calculateTax = async (items: Item[], currency: string) => {
-  const taxCalculation = await stripe.tax.calculations.create({
-    currency,
-    customer_details: {
-      address: {
-        line1: "920 5th Ave",
-        city: "Seattle",
-        state: "WA",
-        postal_code: "98104",
-        country: "JP",
-      },
-      address_source: "shipping",
-    },
-    line_items: items.map((item) => buildLineItem(item)),
-  });
-
-  return taxCalculation;
-};
-
-const buildLineItem = (item: Item) => {
-  return {
-    amount: item.amount, // Amount in cents
-    reference: item.id, // Unique reference for the item in the scope of the calculation
-  };
-};
-
-// Securely calculate the order amount, including tax
-// const calculateOrderAmount = (items: Item[], taxCalculation: { tax_amount_exclusive: number; }) => {
-//   const orderAmount = items.reduce((acc, item) => acc + item.amount, 0) + taxCalculation.tax_amount_exclusive;
-//   return orderAmount;
-// };
-
-const sumAmount = (items: Item[]) => {
-  return items.reduce((acc, item) => acc + item.amount, 0);
-};
 
 export function GET(request: NextRequest): NextResponse {
   // GET /api/users リクエストの処理
@@ -56,21 +16,19 @@ export function GET(request: NextRequest): NextResponse {
 }
 export async function POST(request: Request) {
   console.log(request.body);
-  const { items, email } = await request.json() as requestBody;
-  const taxCalculation = await calculateTax(items, "jpy");
-  const amount = sumAmount(items);
+  const { items, amount, description } = await request.json() as requestBody;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
     currency: "jpy",
-    receipt_email: email,
+    description: description,
+    metadata: {
+      items: JSON.stringify(items),
+    },
     // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
     automatic_payment_methods: {
       enabled: true,
-    },
-    metadata: {
-      tax_calculation: taxCalculation.id
     },
   });
 

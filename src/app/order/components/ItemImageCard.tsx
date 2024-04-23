@@ -1,5 +1,3 @@
-import classNames from "classnames";
-import clsx from "clsx";
 import Image from "next/image";
 
 export const ItemImageCard = (props: {

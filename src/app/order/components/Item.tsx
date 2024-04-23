@@ -7,7 +7,7 @@ import clsx from "clsx";
 import { Cart } from "./Cart";
 import { FormData } from "../types";
 
-const KaguyaVariants = {
+export const KaguyaVariants = {
   triangle: {
     image: "/kaguyaImages/order/triangle.jpg",
     colors: {
