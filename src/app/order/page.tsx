@@ -6,9 +6,9 @@ export default function Order() {
     <div className="max-w-7xl mx-auto">
       <Suspense
         fallback={
-          <div className="text-center flex justify-center items-center w-full h-full">
+          <p className="text-center flex justify-center items-center w-full h-full">
             Loading...
-          </div>
+          </p>
         }
       >
         <Item />

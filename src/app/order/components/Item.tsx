@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ItemImageCard } from "./ItemImageCard";
 import ItemSlides from "./ItemSlides";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import clsx from "clsx";
 import { Cart } from "./Cart";
 import { FormData } from "../types";
@@ -65,23 +65,27 @@ export const Item = () => {
     },
   });
   const onSubmit = handleSubmit((data) => {
-    if (typeof window !== "undefined") {
-      const cart = localStorage.getItem("cart");
-      const cartData = cart ? JSON.parse(cart) : [];
-      localStorage.setItem("cart", JSON.stringify([...cartData, data]));
-      reset();
-      setShape("triangle");
-      setColor("white");
-      setAmount(1);
-    }
+    const cart = localStorage.getItem("cart");
+    const cartData = cart ? JSON.parse(cart) : [];
+    localStorage.setItem("cart", JSON.stringify([...cartData, data]));
+    setCart([...cartData, data]);
+    reset();
+    setShape("triangle");
+    setColor("white");
+    setAmount(1);
   });
   const [shape, setShape] = useState<FormData["shape"]>("triangle");
   const [color, setColor] = useState<FormData["color"]>("white");
   const [amount, setAmount] = useState<FormData["amount"]>(1);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const cart = JSON.parse(
-    (typeof window !== "undefined" && localStorage.getItem("cart")) || "[]"
-  ) as FormData[] | [];
+  const [cart, setCart] = useState<FormData[]>([]);
+
+  useEffect(() => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]") as
+      | FormData[]
+      | [];
+    setCart(cart);
+  }, []);
   setValue("id", Math.random().toString(36));
   return (
     <>
