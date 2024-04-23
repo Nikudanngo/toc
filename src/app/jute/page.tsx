@@ -36,8 +36,8 @@ export default function Jute() {
           src="/slides/slide4.jpeg"
           className="w-full"
           alt="sea"
-          width={1920 * 0.2}
-          height={1038 * 0.2}
+          width={1920 * 0.6}
+          height={1038 * 0.6}
         />
         <p className="absolute top-2 left-0 text-center text-lg sm:text-2xl md:text-4xl lg:text-6xl font-zen-maru-gothic font-bold my-4 text-white drop-shadow-2xl">
           コーヒーの旅路は終わらない。
@@ -53,15 +53,15 @@ export default function Jute() {
               src="/jute/seaweed.jpg"
               alt="seaweed"
               className="h-full w-full"
-              width={100}
-              height={100}
+              width={500}
+              height={500}
             />
             <Image
               src="/jute/moba.jpg"
               className="h-full w-full"
               alt="moba"
-              width={100}
-              height={100}
+              width={500}
+              height={500}
             />
           </div>
           <p className="text-xs text-center break-all">

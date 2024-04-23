@@ -17,8 +17,8 @@ export default function Kaguya() {
           <Image
             src="/kaguyaSlides/simple_brush.jpg"
             alt="KAGUYA"
-            width={300}
-            height={400}
+            width={500}
+            height={600}
             className="w-2/3"
           />
         </div>
@@ -48,8 +48,8 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/onPowder.jpg"
             alt="KAGUYA"
-            width={300}
-            height={200}
+            width={500}
+            height={400}
             className="w-2/3"
           />
         </div>
@@ -60,7 +60,7 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/LyingOnTowel.jpg"
             alt="KAGUYA"
-            width={300}
+            width={500}
             height={400}
             className="w-2/3"
           />
@@ -88,7 +88,7 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/Cycle-image.png"
             alt="KAGUYA"
-            width={300}
+            width={500}
             height={400}
             className="w-2/3"
           />
@@ -100,8 +100,8 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/amenity.jpg"
             alt="KAGUYA"
-            width={600}
-            height={800}
+            width={500}
+            height={400}
             className="w-2/3"
           />
         </div>

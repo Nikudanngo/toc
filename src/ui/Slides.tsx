@@ -45,8 +45,8 @@ const Slide = () => {
           <div className="relative h-auto w-full max-w-7xl flex mx-auto">
             <Image
               src={image}
-              width={1920 * 0.2}
-              height={1038 * 0.2}
+              width={1920 * 0.6}
+              height={1038 * 0.6}
               priority
               alt="Slider Image ${index + 1}"
               className="w-full"
