@@ -53,8 +53,8 @@ const Slide = () => {
             />
             <span>
               <Image
-                width={100}
-                height={100}
+                width={500}
+                height={500}
                 src="/logo.png"
                 className="absolute top-4 sm:top-24 left-12 bg-white/25 rounded-full size-32 sm:size-52 md:size-64 lg:size-80"
                 alt="logo"
