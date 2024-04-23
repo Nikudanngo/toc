@@ -39,7 +39,7 @@ export const Cart = (props: {
   };
 
   const onCheckout = () => {
-    console.log("fetching");
+    localStorage.removeItem("cart");
     fetch("/api/create-payment-intent", {
       method: "POST",
       body: JSON.stringify({

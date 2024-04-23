@@ -67,7 +67,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: "http://localhost:3000",
+        return_url: `${window.location.origin}/complete?email=${email}`,
         receipt_email: email,
       },
     });
@@ -129,6 +129,7 @@ export default function CheckoutForm() {
           </span>
         </button>
       </div>
+      {message && <div className="text-red-500">{message}</div>}
     </form>
   );
 }
