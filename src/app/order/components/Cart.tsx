@@ -76,6 +76,7 @@ export const Cart = (props: {
               </button>
             </div>
           </div>
+          <p>メールアドレス</p>
           <div className="overflow-y-scroll border p-2 rounded-md shadow-inner h-80 mt-6 mx-4 mb-2">
             <div className="flex flex-col gap-3">
               {cartState.map((item) => (
