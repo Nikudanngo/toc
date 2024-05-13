@@ -39,7 +39,7 @@ export default function Test() {
           console.error(error);
         });
     }
-  }, []);
+  }, [router]);
   return (
     <>
       auth
