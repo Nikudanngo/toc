@@ -1,13 +1,12 @@
 "use client";
-import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { auth } from "@/config/Firebase";
 
 const Email = () => {
-  const searchParams = useSearchParams();
-  const email = searchParams.get("email");
+  const user = auth.currentUser;
   return (
     <p className="text-center font-bold bg-gray-900/20 rounded-md p-2">
-      {email}
+      {user?.email}
     </p>
   );
 };

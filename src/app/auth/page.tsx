@@ -40,10 +40,5 @@ export default function Test() {
         });
     }
   }, [router]);
-  return (
-    <>
-      auth
-      <></>
-    </>
-  );
+  return null;
 }
