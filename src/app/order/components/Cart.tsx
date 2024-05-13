@@ -85,21 +85,13 @@ export const Cart = (props: {
               </button>
             </div>
           </div>
-          <p>メールアドレス</p>
-          <div className="overflow-y-scroll border p-2 rounded-md shadow-inner h-80 mt-6 mx-4 mb-2">
+          <div className="overflow-y-scroll border p-2 rounded-md shadow-inner h-80 mt-6 mx-4 mb-2 bg-zinc-200">
             <div className="flex flex-col gap-3">
               {cartState.map((item) => (
-                <div className="border p-2" key={item.id}>
+                <div className="border border-white p-2" key={item.id}>
                   <div className="grid grid-cols-[1fr_auto]">
                     <div className="text-sm flex justify-start items-start gap-4">
                       <p className="text-lg">{item.product}</p>
-                      <div className="grid grid-cols-2 gap-1 my-auto">
-                        <p className="">{item.shape}</p>
-                        <p className="">{item.color}</p>
-                        <p className="">{item.amount}個</p>
-                      </div>
-                    </div>
-                    <div className="flex justify-center items-center gap-3">
                       <Image
                         className="border-2 p-0.5 rounded-md"
                         src={
@@ -109,6 +101,13 @@ export const Cart = (props: {
                         height={100}
                         alt={item.color + "_" + item.shape}
                       />
+                      <div className="grid grid-cols-2 gap-1 my-auto">
+                        <p className="">{item.shape}</p>
+                        <p className="">{item.color}</p>
+                        <p className="">{item.amount}個</p>
+                      </div>
+                    </div>
+                    <div className="flex justify-center items-center">
                       <button
                         onClick={() => {
                           const newCart = cartState.filter(
