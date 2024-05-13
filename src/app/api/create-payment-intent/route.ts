@@ -5,6 +5,7 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 type Item = FormData;
 interface requestBody {
   items: Item[];
+  email: string;
   amount: number;
   description: string;
 }
@@ -16,12 +17,13 @@ export function GET(request: NextRequest): NextResponse {
 }
 export async function POST(request: Request) {
   console.log(request.body);
-  const { items, amount, description } = await request.json() as requestBody;
+  const { items, amount, description, email } = await request.json() as requestBody;
 
   // Create a PaymentIntent with the order amount and currency
   const paymentIntent = await stripe.paymentIntents.create({
     amount: amount,
     currency: "jpy",
+    receipt_email: email,
     description: description,
     metadata: {
       items: JSON.stringify(items),

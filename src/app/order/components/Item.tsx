@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { ItemImageCard } from "./ItemImageCard";
 import ItemSlides from "./ItemSlides";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import clsx from "clsx";
 import { Cart } from "./Cart";
 import { FormData } from "../types";

@@ -5,6 +5,8 @@ import { KaguyaVariants } from "./Item";
 import Image from "next/image";
 import { IoTrashBinOutline } from "react-icons/io5";
 import { useRouter } from "next/navigation";
+import { auth } from "@/config/Firebase";
+import { EmailModal } from "./EmailModal";
 
 export const Cart = (props: {
   cart: FormData[] | [];
@@ -13,6 +15,7 @@ export const Cart = (props: {
 }) => {
   const { cart, isCartOpen, onClose } = props;
   const [cartState, setCartState] = useState<FormData[]>(cart);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -39,11 +42,17 @@ export const Cart = (props: {
   };
 
   const onCheckout = () => {
+    const user = auth.currentUser;
+    if (!user) {
+      setIsOpenModal(true);
+      return;
+    }
     localStorage.removeItem("cart");
     fetch("/api/create-payment-intent", {
       method: "POST",
       body: JSON.stringify({
         items: cart,
+        email: user.email,
         description: "KAGUYA",
         amount: totalAmountPrice(totalAmount),
       }),
@@ -58,7 +67,7 @@ export const Cart = (props: {
   return (
     <>
       {cart.length !== 0 && isCartOpen && (
-        <div className="sticky border bg-white/40 backdrop-blur-md w-full z-20 bottom-0">
+        <div className="sticky border bg-white/40 backdrop-blur-md w-full z-10 bottom-0">
           <div className="flex justify-between items-center m-4">
             <h2 className="text-xl font-bold">カート</h2>
             <div className="flex gap-4">
@@ -128,6 +137,14 @@ export const Cart = (props: {
             </p>
           </div>
         </div>
+      )}
+      {isOpenModal && (
+        <EmailModal
+          open={isOpenModal}
+          onClose={() => {
+            setIsOpenModal(false);
+          }}
+        />
       )}
     </>
   );

@@ -6,7 +6,6 @@ import {
   useStripe,
   useElements,
   ExpressCheckoutElement,
-  LinkAuthenticationElement,
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import clsx from "clsx";
@@ -17,7 +16,6 @@ export default function CheckoutForm() {
 
   const [message, setMessage] = React.useState<string | null>();
   const [isLoading, setIsLoading] = React.useState(false);
-  const [email, setEmail] = React.useState("");
 
   React.useEffect(() => {
     if (!stripe) {
@@ -67,8 +65,7 @@ export default function CheckoutForm() {
       elements,
       confirmParams: {
         // Make sure to change this to your payment completion page
-        return_url: `${window.location.origin}/complete?email=${email}`,
-        receipt_email: email,
+        return_url: `${window.location.origin}/complete`,
       },
     });
 
@@ -95,11 +92,6 @@ export default function CheckoutForm() {
   };
   return (
     <form id="payment-form" onSubmit={handleSubmit}>
-      <LinkAuthenticationElement
-        onChange={(e) => {
-          setEmail(e.value.email);
-        }}
-      />
       <ExpressCheckoutElement onConfirm={handleConfirmExpressCheckout} />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <div className="flex my-4 justify-center items-center gap-4">

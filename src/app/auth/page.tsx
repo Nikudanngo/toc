@@ -3,38 +3,40 @@
 import { auth } from "@/config/Firebase";
 
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
+import router from "next/router";
 import { useEffect } from "react";
 
 export default function Test() {
   useEffect(() => {
-    // Confirm the link is a sign-in with email link.
+    // リンクがメールアドレスでのサインインリンクであることを確認します。
     if (isSignInWithEmailLink(auth, window.location.href)) {
       console.log(window.location.href);
-      // Additional state parameters can also be passed via URL.
-      // This can be used to continue the user's intended action before triggering
-      // the sign-in operation.
-      // Get the email if available. This should be available if the user completes
-      // the flow on the same device where they started it.
+      // URL経由で追加の状態パラメーターも渡すことができます。
+      // これにより、サインイン操作をトリガーする前に、ユーザーの意図したアクションを継続するために使用できます。
+      // 利用可能な場合は、メールアドレスを取得します。ユーザーが開始したデバイスと同じデバイスでフローを完了した場合、これが利用可能になるはずです。
       let email = window.localStorage.getItem("emailForSignIn");
       console.log(email);
+      if (!email) {
+        // ユーザーが異なるデバイスでリンクを開いた場合、セッション固定攻撃を防ぐために、関連するメールアドレスを再度入力してもらいます。
+        email = window.prompt("確認のためにメールアドレスを入力してください");
+      }
       if (!email) return;
-      // The client SDK will parse the code from the link for you.
+      // クライアントSDKはリンクからコードを解析します。
       signInWithEmailLink(auth, email, window.location.href)
         .then((result) => {
-          // Clear email from storage.
+          // ストレージからメールアドレスを削除します。
           window.localStorage.removeItem("emailForSignIn");
-          console.log(window.location.href);
-          console.log(result);
-          console.log(result.user.email);
-          // You can access the new user via result.user
-          // Additional user info profile not available via:
-          // result.additionalUserInfo.profile == null
-          // You can check if the user is new or existing:
+          // orderページにリダイレクトします。
+          router.push("/order");
+          // result.userを介して新しいユーザーにアクセスできます
+          // result.additionalUserInfo.profile == nullを介して利用できない追加のユーザー情報プロファイル
+          // ユーザーが新規ユーザーか既存のユーザーかを確認できます
           // result.additionalUserInfo.isNewUser
         })
         .catch((error) => {
-          // Some error occurred, you can inspect the code: error.code
-          // Common errors could be invalid email and invalid or expired OTPs.
+          // エラーが発生した場合、error.codeを調査できます
+          // 一般的なエラーは、無効なメールアドレスや無効または期限切れのOTPです。
+          console.error(error);
         });
     }
   }, []);
