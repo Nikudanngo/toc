@@ -5,10 +5,12 @@ import { useState } from "react";
 
 import { auth } from "@/config/Firebase";
 import { Modal } from "@/ui/Modal";
+import clsx from "clsx";
 
 export const EmailModal = (props: { open: boolean; onClose: () => void }) => {
   const { open, onClose } = props;
   const [email, setEmail] = useState("");
+  const [isSendEmail, setIsSendEmail] = useState(false);
   const actionCodeSettings = {
     // リダイレクト先のURL。このURLのドメイン（www.example.com）はFirebaseコンソールの承認済みドメインリストに含まれている必要があります。
     url: `${window.location.origin}/auth`,
@@ -27,6 +29,7 @@ export const EmailModal = (props: { open: boolean; onClose: () => void }) => {
         // リンクが正常に送信されました。ユーザーに通知します。
         // 同じデバイスでリンクを開く場合、再度ユーザーにメールを要求する必要がないように、メールをローカルに保存します。
         window.localStorage.setItem("emailForSignIn", email);
+        setIsSendEmail(true);
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -51,12 +54,21 @@ export const EmailModal = (props: { open: boolean; onClose: () => void }) => {
               placeholder="email@example.com"
             />
             <button
-              className="border p-2 w-16 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className={clsx(
+                "border p-2 w-16 bg-blue-600 text-white rounded-md hover:bg-blue-700",
+                { "!bg-gray-400  !hover:bg-gray-500": isSendEmail }
+              )}
+              disabled={isSendEmail}
               onClick={() => onSubmit(auth, email, actionCodeSettings)}
             >
               送信
             </button>
           </div>
+          {isSendEmail && (
+            <p className="text-green-500 z-10 text-sm mt-2">
+              認証リンクを送信しました。メールを確認してください。
+            </p>
+          )}
         </div>
       </Modal>
     </>
