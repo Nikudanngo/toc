@@ -17,6 +17,7 @@ export const Cart = (props: {
   const [cartState, setCartState] = useState<FormData[]>(cart);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const router = useRouter();
+  const user = auth.currentUser;
 
   useEffect(() => {
     setCartState(cart);
@@ -42,7 +43,6 @@ export const Cart = (props: {
   };
 
   const onCheckout = () => {
-    const user = auth.currentUser;
     if (!user) {
       setIsOpenModal(true);
       return;
@@ -84,6 +84,38 @@ export const Cart = (props: {
                 注文する
               </button>
             </div>
+          </div>
+          <div className="m-4 flex gap-2">
+            {user ? (
+              <p>
+                領収書送信先:{" "}
+                <span>
+                  <button
+                    className="text-blue-500 underline"
+                    onClick={() => {
+                      window.localStorage.removeItem("emailForSignIn");
+                      setIsOpenModal(true);
+                    }}
+                  >
+                    {user.email}
+                  </button>
+                </span>
+              </p>
+            ) : (
+              <p>
+                <span>
+                  <button
+                    className="text-blue-500 underline"
+                    onClick={() => {
+                      setIsOpenModal(true);
+                    }}
+                  >
+                    ログイン
+                  </button>
+                </span>
+                してください
+              </p>
+            )}
           </div>
           <div className="overflow-y-scroll border p-2 rounded-md shadow-inner h-80 mt-6 mx-4 mb-2 bg-zinc-200">
             <div className="flex flex-col gap-3">

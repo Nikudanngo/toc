@@ -3,10 +3,11 @@
 import { auth } from "@/config/Firebase";
 
 import { isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
 export default function Test() {
+  const router = useRouter();
   useEffect(() => {
     // リンクがメールアドレスでのサインインリンクであることを確認します。
     if (isSignInWithEmailLink(auth, window.location.href)) {
@@ -15,7 +16,6 @@ export default function Test() {
       // これにより、サインイン操作をトリガーする前に、ユーザーの意図したアクションを継続するために使用できます。
       // 利用可能な場合は、メールアドレスを取得します。ユーザーが開始したデバイスと同じデバイスでフローを完了した場合、これが利用可能になるはずです。
       let email = window.localStorage.getItem("emailForSignIn");
-      console.log(email);
       if (!email) {
         // ユーザーが異なるデバイスでリンクを開いた場合、セッション固定攻撃を防ぐために、関連するメールアドレスを再度入力してもらいます。
         email = window.prompt("確認のためにメールアドレスを入力してください");
