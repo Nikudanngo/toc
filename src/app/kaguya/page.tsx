@@ -9,7 +9,7 @@ export default function Kaguya() {
         KAGUYA
       </h1>
       <p className="text-center text-4xl text-gray-600">
-        日本人のために開発した竹歯ブラシ
+        しなやかで地球にも優しい竹歯ブラシ
       </p>
 
       <div className="flex flex-col md:flex-row mt-6">
