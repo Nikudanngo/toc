@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CiMail } from "react-icons/ci";
 import { CiPhone } from "react-icons/ci";
 import { CiViewList } from "react-icons/ci";
@@ -24,22 +25,22 @@ export default function Contact() {
               時間や担当の不在によりご対応できない場合がございます。
             </p>
             <div className="my-4">
-              <a
+              <Link
                 className="underline text-blue-600"
                 href="mailto:allthumbs.co@gmail.com"
                 target="_blank"
               >
                 メール: allthumbs.co@gmail.com
-              </a>
+              </Link>
             </div>
             <div className="my-4">
-              <a
+              <Link
                 className="underline text-blue-600"
                 href="tel:0743-72-2037"
                 target="_blank"
               >
                 電話: 0743-72-2037
-              </a>
+              </Link>
             </div>
           </div>
           <div className="w-full my-6">
@@ -53,13 +54,13 @@ export default function Contact() {
               1~2営業以内にメールにて折り返しご連絡いたします。
             </p>
             <div className="my-4">
-              <a
+              <Link
                 className="underline text-blue-600"
                 href="https://forms.gle/6xMw6epBHwFLkpfs6"
                 target="_blank"
               >
                 リンクはこちら
-              </a>
+              </Link>
             </div>
           </div>
         </div>

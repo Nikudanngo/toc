@@ -1,5 +1,6 @@
 import { Buy } from "@/ui/Buy";
 import Image from "next/image";
+import Link from "next/link";
 const price = 300;
 
 export default function Kaguya() {
@@ -112,9 +113,9 @@ export default function Kaguya() {
           <p className="text-center text-xl text-gray-500 whitespace-pre-wrap m-4">
             弊社ではホテル様向けに多数のアメニティをご用意しています。ご注文は
             <span>
-              <a className=" underline text-blue-600" href="/contact">
+              <Link className=" underline text-blue-600" href="/contact">
                 ご連絡
-              </a>
+              </Link>
             </span>
             からご相談ください。
           </p>

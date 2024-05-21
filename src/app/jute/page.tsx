@@ -1,5 +1,6 @@
 import { Buy } from "@/ui/Buy";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Jute() {
   const features = [
@@ -68,12 +69,12 @@ export default function Jute() {
             出典:農林水産省Webサイト
             <span>
               (
-              <a
+              <Link
                 className=" text-blue-600"
                 href="https://www.jfa.maff.go.jp/j/kikaku/tamenteki/kaisetu/moba/moba_genjou"
               >
                 https://www.jfa.maff.go.jp/j/kikaku/tamenteki/kaisetu/moba/moba_genjou
-              </a>
+              </Link>
               )
             </span>
           </p>
@@ -81,12 +82,12 @@ export default function Jute() {
             画像生成:Stable Diffusion
             <span>
               (
-              <a
+              <Link
                 className=" text-blue-600"
                 href="https://stablediffusionweb.com"
               >
                 https://stablediffusionweb.com
-              </a>
+              </Link>
               )
             </span>
           </p>
