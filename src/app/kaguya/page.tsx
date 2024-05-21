@@ -40,8 +40,8 @@ export default function Kaguya() {
             優しい <br /> タッチ
           </h2>
           <p className="text-center text-xl text-gray-500 whitespace-pre-wrap m-4">
-            日本人のためにデザインされた、ちょうどいい大きさで心地よい磨き心地。
-            徹底的な品質管理、特殊な加工によりなめらかな肌触りを実現。
+            手にぴったりフィットするサイズ感と、毎日の歯磨きを心地よくする最高の磨き心地を提供。
+            徹底的な品質管理と特殊な加工によりなめらかな肌触りを実現。
           </p>
         </div>
         <div className="w-full flex justify-center items-center">
