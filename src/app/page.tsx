@@ -13,13 +13,11 @@ export default function Home() {
           </h1>
           <a
             href="kaguya"
-            className="text-center text-xl text-gray-600 underline"
+            className="p-4 text-center text-xl text-gray-600 underline z-10"
           >
-            BAMBOO TOOTHBRUSH
+            <p className="mb-4">BAMBOO TOOTHBRUSH</p>
+            <p>詳しく見る</p>
           </a>
-          <button className="p-4 underline text-center">
-            <a href="/kaguya">詳しく見る</a>
-          </button>
         </div>
         <div className="w-full flex flex-col justify-center items-center">
           <CardSwipe
@@ -66,13 +64,11 @@ export default function Home() {
           </h1>
           <a
             href="jute"
-            className="text-center text-xl text-gray-600 underline"
+            className="p-4 text-center text-xl text-gray-600 underline z-10"
           >
-            COFFEE JUTE UP-CYCLE
+            <p className="mb-4">COFFEE JUTE UP-CYCLE</p>
+            <p>詳しく見る</p>
           </a>
-          <button className="p-4 underline text-center">
-            <a href="/jute">詳しく見る</a>
-          </button>
         </div>
       </div>
       <Buy product="all" brushPrice={300} jutePrice="準備中" />

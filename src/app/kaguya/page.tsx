@@ -9,7 +9,7 @@ export default function Kaguya() {
         KAGUYA
       </h1>
       <p className="text-center text-4xl text-gray-600">
-        日本人のために開発した竹歯ブラシ
+        しなやかで地球にも優しい竹歯ブラシ
       </p>
 
       <div className="flex flex-col md:flex-row mt-6">
@@ -17,8 +17,8 @@ export default function Kaguya() {
           <Image
             src="/kaguyaSlides/simple_brush.jpg"
             alt="KAGUYA"
-            width={300}
-            height={400}
+            width={500}
+            height={600}
             className="w-2/3"
           />
         </div>
@@ -40,16 +40,16 @@ export default function Kaguya() {
             優しい <br /> タッチ
           </h2>
           <p className="text-center text-xl text-gray-500 whitespace-pre-wrap m-4">
-            日本人のためにデザインされた、ちょうどいい大きさで心地よい磨き心地。
-            徹底的な品質管理、特殊な加工によりなめらかな肌触りを実現。
+            手にぴったりフィットするサイズ感と、毎日の歯磨きを心地よくする最高の磨き心地を提供。
+            徹底的な品質管理と特殊な加工によりなめらかな肌触りを実現。
           </p>
         </div>
         <div className="w-full flex justify-center items-center">
           <Image
             src="/kaguyaImages/onPowder.jpg"
             alt="KAGUYA"
-            width={300}
-            height={200}
+            width={500}
+            height={400}
             className="w-2/3"
           />
         </div>
@@ -60,7 +60,7 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/LyingOnTowel.jpg"
             alt="KAGUYA"
-            width={300}
+            width={500}
             height={400}
             className="w-2/3"
           />
@@ -88,7 +88,7 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/Cycle-image.png"
             alt="KAGUYA"
-            width={300}
+            width={500}
             height={400}
             className="w-2/3"
           />
@@ -100,8 +100,8 @@ export default function Kaguya() {
           <Image
             src="/kaguyaImages/amenity.jpg"
             alt="KAGUYA"
-            width={600}
-            height={800}
+            width={500}
+            height={400}
             className="w-2/3"
           />
         </div>

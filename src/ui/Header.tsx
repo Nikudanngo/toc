@@ -6,7 +6,7 @@ export const Header = () => {
   // 現在のページのURLを取得(next.js app routerのURLを取得する方法)
   const pathname = usePathname();
   return (
-    <header className="w-full z-10 sticky top-0 sm:h-16 items-center justify-between bg-white flex shadow p-2">
+    <header className="w-full z-10 top-0 sm:h-16 items-center justify-between bg-white flex shadow p-2">
       <a href="/">
         <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-zen-maru-gothic">
           Thought of Oceans
