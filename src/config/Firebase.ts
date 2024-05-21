@@ -2,15 +2,15 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 // Configure Firebase.
-const config = {
-  apiKey: "AIzaSyAH1b-GDYA9HxXJla5Ln26YDKWE8k-Fcwg",
-  authDomain: "toc-web-11273.firebaseapp.com",
-  projectId: "toc-web-11273",
-  storageBucket: "toc-web-11273.appspot.com",
-  messagingSenderId: "659773912636",
-  appId: "1:659773912636:web:d5e22fea97cf6212407539",
-  measurementId: "G-8CPFT9R8M3",
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
 
-const admin = initializeApp(config);
+const admin = initializeApp(firebaseConfig);
 export const auth = getAuth(admin);
