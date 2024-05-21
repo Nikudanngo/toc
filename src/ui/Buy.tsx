@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import Image from "next/image";
-
+import Link from "next/link";
 type product = "kaguya" | "jute" | "all";
 
 export const Buy = ({
@@ -37,18 +37,24 @@ export const Buy = ({
               KAGUYA歯ブラシは、3年以上乾燥させた天然竹を使用し、特別に設計されたノズルとグリップで快適な磨き心地を実現した高品質な歯ブラシです。
             </p>
             <div className="flex gap-4 my-4">
-              <button className="bg-blue-600 text-white p-2 rounded-md">
-                {/* <a href="https://buy.stripe.com/00gcPd0Eu2FjbiofYY">購入</a> */}
-                <a href="order">購入</a>
-              </button>
-              <button className="bg-blue-600 text-white p-2 rounded-md">
-                <a href="https://amzn.asia/d/fAz6UDs">Amazon</a>
-              </button>
-              <button className="bg-blue-600 text-white p-2 rounded-md">
-                <a href="https://goooods.com/brands/4307535b-8d7a-46f6-a96b-b1a74dbadd97">
-                  goooods
-                </a>
-              </button>
+              <Link
+                className="bg-blue-600 text-white p-2 rounded-md"
+                href="order"
+              >
+                購入
+              </Link>
+              <Link
+                className="bg-blue-600 text-white p-2 rounded-md"
+                href="https://amzn.asia/d/fAz6UDs"
+              >
+                Amazon
+              </Link>
+              <Link
+                className="bg-blue-600 text-white p-2 rounded-md"
+                href="https://goooods.com/brands/4307535b-8d7a-46f6-a96b-b1a74dbadd97"
+              >
+                goooods
+              </Link>
             </div>
           </div>
         ) : null}

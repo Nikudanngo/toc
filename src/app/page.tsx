@@ -1,6 +1,7 @@
 import { Buy } from "@/ui/Buy";
 import { CardSwipe } from "@/ui/CardSwipe";
 import Slide from "@/ui/Slides";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -11,13 +12,13 @@ export default function Home() {
           <h1 className="text-3xl text-center">
             竹歯ブラシブランド <br /> KAGUYA
           </h1>
-          <a
+          <Link
             href="kaguya"
             className="p-4 text-center text-xl text-gray-600 underline z-10"
           >
             <p className="mb-4">BAMBOO TOOTHBRUSH</p>
             <p>詳しく見る</p>
-          </a>
+          </Link>
         </div>
         <div className="w-full flex flex-col justify-center items-center">
           <CardSwipe
@@ -62,13 +63,13 @@ export default function Home() {
           <h1 className="text-3xl text-center">
             コーヒージュートで <br /> アップサイクル
           </h1>
-          <a
+          <Link
             href="jute"
             className="p-4 text-center text-xl text-gray-600 underline z-10"
           >
             <p className="mb-4">COFFEE JUTE UP-CYCLE</p>
             <p>詳しく見る</p>
-          </a>
+          </Link>
         </div>
       </div>
       <Buy product="all" brushPrice={300} jutePrice="準備中" />

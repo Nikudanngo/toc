@@ -1,5 +1,6 @@
 "use client";
 import classNames from "classnames";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export const Header = () => {
@@ -7,30 +8,30 @@ export const Header = () => {
   const pathname = usePathname();
   return (
     <header className="w-full z-10 top-0 sm:h-16 items-center justify-between bg-white flex shadow p-2">
-      <a href="/">
+      <Link href="/">
         <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold font-zen-maru-gothic">
           Thought of Oceans
         </h1>
-      </a>
+      </Link>
       <nav>
         <ul className="flex flex-col sm:flex-row sm:gap-8 [&_li]:underline [&_li:hover]:text-blue-600 [&_li:hover]:list-['＞']">
           <li className={classNames({ "list-['＞']": pathname === "/" })}>
-            <a href="/" className="">
+            <Link href="/" className="">
               ホーム
-            </a>
+            </Link>
           </li>
           <li className={classNames({ "list-['＞']": pathname === "/about" })}>
-            <a href="/about">私たちについて</a>
+            <Link href="/about">私たちについて</Link>
           </li>
           <li
             className={classNames({
               "list-['＞']": pathname === "/kaguya",
             })}
           >
-            <a href="/kaguya">竹歯ブラシ</a>
+            <Link href="/kaguya">竹歯ブラシ</Link>
           </li>
           <li className={classNames({ "list-['＞']": pathname === "/jute" })}>
-            <a href="/jute">ジュート</a>
+            <Link href="/jute">ジュート</Link>
           </li>
           <li
             className={classNames(
@@ -38,7 +39,7 @@ export const Header = () => {
               "sm:mr-4"
             )}
           >
-            <a href="/contact">連絡先</a>
+            <Link href="/contact">連絡先</Link>
           </li>
         </ul>
       </nav>

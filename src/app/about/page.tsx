@@ -1,4 +1,5 @@
 import { CompanyOverview } from "@/ui/CompanyOverview";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -14,12 +15,12 @@ export default function About() {
           INCN（国際自然保護連合）によると、毎年1,200万トンのプラスチックが海に流れ込んでいると言われています。
           (「
           <span>
-            <a
+            <Link
               className="underline text-blue-600"
               href="https://portals.iucn.org/library/node/48957"
             >
               The marine plastic footprint
-            </a>
+            </Link>
           </span>
           」)
           私たちはこのブランドを通じ、生分解されやすいプラスチック代替商品を社会や消費者へ提供することで、

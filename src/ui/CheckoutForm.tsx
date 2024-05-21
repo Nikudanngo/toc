@@ -9,6 +9,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { StripePaymentElementOptions } from "@stripe/stripe-js";
 import clsx from "clsx";
+import Link from "next/link";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -95,7 +96,7 @@ export default function CheckoutForm() {
       <ExpressCheckoutElement onConfirm={handleConfirmExpressCheckout} />
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <div className="flex my-4 justify-center items-center gap-4">
-        <a href="/order">
+        <Link href="/order">
           <button
             type="button"
             className="border p-2 rounded-md w-28"
@@ -103,7 +104,7 @@ export default function CheckoutForm() {
           >
             戻る
           </button>
-        </a>
+        </Link>
         <button
           type="submit"
           className={clsx("bg-gray-400 w-28 text-white p-2 rounded-md", {
