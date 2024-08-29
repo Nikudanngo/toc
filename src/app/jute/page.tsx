@@ -19,16 +19,6 @@ export default function Jute() {
       content:
         "麻は土中でも海洋でも分解される素材です。海中に放置しても自然に分解されます。",
     },
-    // {
-    //   title: "再利用可能",
-    //   content:
-    //     "コーヒー豆用の麻袋は再利用可能な素材です。使用後はリサイクルすることができます。",
-    // },
-    // {
-    //   title: "デザイン",
-    //   content:
-    //     "コーヒー豆用の麻袋はデザイン性に優れています。そのため、商品ごとに個性のあるデザインが生まれます。",
-    // },
   ];
   return (
     <div className="max-w-7xl mx-auto">
@@ -118,6 +108,27 @@ export default function Jute() {
           </ul>
         </div>
       </div>
+      <div className="mt-6 mx-2">
+        <h2 className="text-center text-3xl my-4 font-bold">製品イメージ</h2>
+        <div className="grid grid-flow-row gap-4 md:grid-flow-col ">
+          <Image
+            src="/jute/jute_planter.jpeg"
+            alt="planter"
+            className="mx-auto rounded-xl shadow-xl"
+            width={400}
+            height={400}
+          />
+          <div>
+            <h3 className="text-2xl font-bold">プランター</h3>
+            <p className="mx-4">
+              コーヒー豆用の麻袋を再利用して作られたプランターです。
+              <br />
+              ナチュラルな温かみのあるデザインで、どんな環境にも調和します。
+            </p>
+          </div>
+        </div>
+      </div>
+      <Buy jutePrice="準備中" product="jute" />
       <div className="my-8 mx-4">
         <p className="text-xl">補足</p>
         <ul className="text-gray-600">
@@ -127,7 +138,6 @@ export default function Jute() {
           </li>
         </ul>
       </div>
-      <Buy jutePrice="準備中" product="jute" />
     </div>
   );
 }
