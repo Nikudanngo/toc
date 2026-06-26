@@ -37,12 +37,12 @@ export const Buy = ({
               KAGUYA歯ブラシは、3年以上乾燥させた天然竹を使用し、特別に設計されたノズルとグリップで快適な磨き心地を実現した高品質な歯ブラシです。
             </p>
             <div className="flex gap-4 my-4">
-              <Link
+              {/* <Link
                 className="bg-blue-600 text-white p-2 rounded-md"
                 href="order"
               >
                 購入
-              </Link>
+              </Link> */}
               <Link
                 className="bg-blue-600 text-white p-2 rounded-md"
                 href="https://amzn.asia/d/fAz6UDs"
@@ -73,12 +73,12 @@ export const Buy = ({
               この商品は現在準備中です。しばらくお待ちください。
             </p>
             <div className="flex gap-4 my-4">
-              <button
+              {/* <button
                 className="text-white p-2 rounded-md bg-slate-400"
                 disabled
               >
                 購入
-              </button>
+              </button> */}
               <button
                 className="bg-slate-400 text-white p-2 rounded-md"
                 disabled
