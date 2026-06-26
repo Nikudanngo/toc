@@ -1,7 +1,7 @@
 import { Buy } from "@/ui/Buy";
 import Image from "next/image";
 import Link from "next/link";
-const price = 300;
+const price = 250;
 
 export default function Kaguya() {
   return (

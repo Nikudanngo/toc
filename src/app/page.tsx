@@ -72,7 +72,7 @@ export default function Home() {
           </Link>
         </div>
       </div>
-      <Buy product="all" brushPrice={300} jutePrice="準備中" />
+      <Buy product="all" brushPrice={250} jutePrice="準備中" />
     </div>
   );
 }
