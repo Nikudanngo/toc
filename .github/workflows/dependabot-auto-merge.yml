@@ -17,25 +17,29 @@ jobs:
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      # マイナー・パッチバージョンアップのみ自動マージ（メジャーアップデートを除外）
-      # PR 作成直後は mergeability が未確定（unstable）で enablePullRequestAutoMerge が失敗する
-      - name: Enable auto-merge for Dependabot PRs
+      # マイナー・パッチのみマージ（メジャーアップデートを除外）
+      # main に必須チェックがないため gh pr merge --auto は UNSTABLE のまま拒否される。
+      # このジョブ自身の成否は待たず、Vercel が成功したら squash マージする。
+      - name: Squash-merge Dependabot PRs
         if: steps.metadata.outputs.update-type != 'version-update:semver-major'
         run: |
-          for attempt in $(seq 1 12); do
-            state=$(gh pr view "$PR_URL" --json mergeStateStatus --jq .mergeStateStatus)
-            echo "mergeStateStatus=${state} (attempt ${attempt}/12)"
-            case "$state" in
-              UNKNOWN|UNSTABLE)
-                sleep 10
-                ;;
-              *)
-                gh pr merge --auto --squash "$PR_URL"
-                exit 0
-                ;;
-            esac
+          for attempt in $(seq 1 30); do
+            json=$(gh pr view "$PR_URL" --json mergeable,statusCheckRollup)
+            mergeable=$(jq -r '.mergeable' <<<"$json")
+            vercel=$(jq -r '[.statusCheckRollup // [] | .[] | select(.context == "Vercel") | .state] | first // "MISSING"' <<<"$json")
+            failed=$(jq '[.statusCheckRollup // [] | .[] | select(.name != "dependabot") | select(.conclusion == "FAILURE" or .conclusion == "CANCELLED" or .conclusion == "TIMED_OUT" or .state == "FAILURE" or .state == "ERROR")] | length' <<<"$json")
+            echo "mergeable=${mergeable} vercel=${vercel} (attempt ${attempt}/30)"
+            if [ "$failed" != "0" ]; then
+              echo "A check failed; not merging."
+              exit 1
+            fi
+            if [ "$mergeable" = "MERGEABLE" ] && [ "$vercel" = "SUCCESS" ]; then
+              gh pr merge --squash "$PR_URL"
+              exit 0
+            fi
+            sleep 10
           done
-          echo "Timed out waiting for GitHub to finish calculating mergeability."
+          echo "Timed out waiting for Vercel and a mergeable pull request."
           exit 1
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
