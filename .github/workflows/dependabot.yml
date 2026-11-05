@@ -1,0 +1,6 @@
+version: 2
+updates:
+  - package-ecosystem: "npm" # 使用しているエコシステム（npm, pip, cargo, gomod など）
+    directory: "/"
+    schedule:
+      interval: "daily" # weekly や monthly に変更可能
