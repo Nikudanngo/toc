@@ -18,9 +18,25 @@ jobs:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       # マイナー・パッチバージョンアップのみ自動マージ（メジャーアップデートを除外）
+      # PR 作成直後は mergeability が未確定（unstable）で enablePullRequestAutoMerge が失敗する
       - name: Enable auto-merge for Dependabot PRs
         if: steps.metadata.outputs.update-type != 'version-update:semver-major'
-        run: gh pr merge --auto --squash "$PR_URL"
+        run: |
+          for attempt in $(seq 1 12); do
+            state=$(gh pr view "$PR_URL" --json mergeStateStatus --jq .mergeStateStatus)
+            echo "mergeStateStatus=${state} (attempt ${attempt}/12)"
+            case "$state" in
+              UNKNOWN|UNSTABLE)
+                sleep 10
+                ;;
+              *)
+                gh pr merge --auto --squash "$PR_URL"
+                exit 0
+                ;;
+            esac
+          done
+          echo "Timed out waiting for GitHub to finish calculating mergeability."
+          exit 1
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
