@@ -30,7 +30,7 @@
     "swiper": "latest"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "typescript": "^7",
     "@types/node": "^26",
     "@types/react": "^18",
     "@types/react-dom": "^19",
